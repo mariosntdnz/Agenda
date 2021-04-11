@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Agenda</string>
+    <string name="cadastro_option_name">Nome</string>
+    <string name="cadastro_option_cpf">CPF</string>
+    <string name="cadastro_option_data_cadastro">Data de cadastro</string>
+    <string name="cadastro_option_data_nasc">Data de nascimento</string>
+    <string name="cadastro_option_telefone">Telefone</string>
+    <string name="cadastro_option_uf">UF : </string>
 </resources>

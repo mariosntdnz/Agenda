@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.agenda.databinding.FragmentClientesBinding
 
 class ClientesFragment : Fragment(){
@@ -23,6 +24,10 @@ class ClientesFragment : Fragment(){
         val adapter = ClientesAdapter()
         binding.lifecycleOwner = this
         binding.recyclerViewClientes.adapter = adapter
+
+        binding.fab.setOnClickListener {
+            this.findNavController().navigate(ClientesFragmentDirections.actionClientesFragmentToCadastroFragment())
+        }
         return binding.root
     }
 
