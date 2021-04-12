@@ -2,17 +2,17 @@ package com.example.agenda.ui.clientes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.agenda.databinding.ClientesItemBinding
 import com.example.agenda.domain.Cliente
+import kotlinx.android.synthetic.main.clientes_item.view.*
 
-class ClientesAdapter : PagingDataAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(DiffCallback){
+class ClientesAdapter : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(DiffCallback){
 
-    class ClienteViewHolder(val binding: ClientesItemBinding) : RecyclerView.ViewHolder(binding.root){
-
-    }
+    class ClienteViewHolder(binding: ClientesItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     companion object DiffCallback : DiffUtil.ItemCallback<Cliente>() {
         override fun areItemsTheSame(oldItem: Cliente , newItem: Cliente): Boolean {
@@ -24,8 +24,10 @@ class ClientesAdapter : PagingDataAdapter<Cliente, ClientesAdapter.ClienteViewHo
         }
     }
 
-    override fun onBindViewHolder(holder: ClientesAdapter.ClienteViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) {
+        val cliente = getItem(position)
+        println(cliente.nome + "DIFF")
+        holder.itemView.textViewNomeCliente.text = cliente.nome
     }
 
     override fun onCreateViewHolder(
