@@ -21,22 +21,15 @@ class ClientesFragment : Fragment(){
         )
     }
 
+    lateinit var binding : FragmentClientesBinding
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentClientesBinding.inflate(inflater,container,false)
-        val adapter = ClientesAdapter()
-
+        binding = FragmentClientesBinding.inflate(inflater,container,false)
         binding.lifecycleOwner = this
-        binding.recyclerViewClientes.adapter = adapter
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.clientes.collect {
-                adapter.submitList(it)
-            }
-        }
 
         binding.fab.setOnClickListener {
             this.findNavController().navigate(ClientesFragmentDirections.actionClientesFragmentToCadastroFragment())
@@ -45,6 +38,20 @@ class ClientesFragment : Fragment(){
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val adapter = ClientesAdapter()
+        binding.recyclerViewClientes.adapter = adapter
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.clientes.collect {
+                adapter.submitList(it.sortedBy { it.nome })
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -26,7 +26,6 @@ class ClientesAdapter : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(
 
     override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) {
         val cliente = getItem(position)
-        println(cliente.nome + "DIFF")
         holder.itemView.textViewNomeCliente.text = cliente.nome
     }
 
