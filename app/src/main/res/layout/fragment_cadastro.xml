@@ -6,6 +6,9 @@
         <variable
             name="constantes"
             type="com.example.agenda.utils.Constantes"/>
+        <variable
+            name="cliente"
+            type="com.example.agenda.ui.cadastro.RegisterClientModel"/>
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,32 +24,38 @@
             android:hint="@string/cadastro_option_name"
             android:inputType="textPersonName"
             android:textSize="18sp"
+            android:text="@={cliente.nome}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editTextCadastroCpf"
+            mask="@{constantes.maskCPF}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            mask="@{constantes.maskCPF}"
             android:hint="@string/cadastro_option_cpf"
+            android:text="@={cliente.cpf}"
             android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroNome" />
 
         <EditText
             android:id="@+id/editTextCadastroDataDeCadastro"
+            getData="@{true}"
+            mask="@{constantes.maskDataCad}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="@string/cadastro_option_data_cadastro"
             android:focusableInTouchMode="false"
-            getData="@{true}"
-            mask="@{constantes.maskDataCad}"
+            android:hint="@string/cadastro_option_data_cadastro"
+            android:text="@={cliente.dataCadastro}"
             android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroCpf" />
 
@@ -60,6 +69,7 @@
             plotCalendar="@{true}"
             android:focusableInTouchMode="false"
             android:hint="@string/cadastro_option_data_nasc"
+            android:text="@={cliente.dataNascimento}"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataDeCadastro" />
@@ -76,13 +86,14 @@
 
         <EditText
             android:id="@+id/editTextCadastroTelefone"
-            android:layout_width="wrap_content"
+            mask="@{constantes.maskCel}"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            mask="@{constantes.maskCel}"
             android:hint="@string/cadastro_option_telefone"
             android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataNascimento" />
 

@@ -6,4 +6,9 @@
     <string name="cadastro_option_data_nasc">Data de nascimento</string>
     <string name="cadastro_option_telefone">Telefone</string>
     <string name="cadastro_option_uf">UF : </string>
+    <string name="label_salvar">Salvar</string>
+    <string name="cadastro_label">Cadastro</string>
+    <string name="cadastro_error">Dados não preenchidos corretamente</string>
+    <string name="cadastro_dialog_positive_message">Entendi</string>
+
 </resources>

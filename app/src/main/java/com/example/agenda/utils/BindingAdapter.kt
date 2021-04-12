@@ -2,10 +2,13 @@ package com.example.agenda.utils
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.databinding.BindingAdapter
+import androidx.databinding.ObservableField
 import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener
 import com.example.agenda.R
 import java.text.SimpleDateFormat
@@ -23,7 +26,7 @@ fun maskEditText(editText: EditText,maskLabel: Int){
         Constantes.maskData->{
             editText.addTextChangedListener(MaskEditTextChangedListener("##/##/####",editText))
         }
-        Constantes.maskDataCad->{
+        Constantes.maskDataCad ->{
             editText.addTextChangedListener(MaskEditTextChangedListener("##/##/#### ##:##:##",editText))
         }
     }
