@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey
 data class ClienteEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "cliente_id")
-    val id : Int,
-    val nome: String,
-    val cpf: String,
-    val dataCadastro : String,
-    val dataNascimento : String,
-    val UF : String,
+    val id : Int?,
+    val nome: String?,
+    val cpf: String?,
+    val dataCadastro : String?,
+    val dataNascimento : String?,
+    val UF : String?,
 )

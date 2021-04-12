@@ -48,6 +48,7 @@ class CadastroFragment : Fragment(){
 
                 val erros = viewModel.registerClientModel.validation()
                 if (erros == "") {
+                    viewModel.insertClienteBD()
                     findNavController().navigateUp()
                 } else {
                     plotAlertDialogErros(erros)

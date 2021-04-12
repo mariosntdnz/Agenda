@@ -7,7 +7,7 @@ class ClienteWithTelefone (
     @Embedded val clienteEntity: ClienteEntity,
     @Relation(
         parentColumn = "cliente_id",
-        entityColumn = "telefone_id"
+        entityColumn = "clienteId"
     )
     val telefoneList : List<TelefoneEntity>
 )
