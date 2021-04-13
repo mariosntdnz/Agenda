@@ -5,9 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
@@ -30,6 +28,7 @@ class DetalhesFragment : Fragment() {
         cliente = DetalhesFragmentArgs.fromBundle(requireArguments()).contato
         binding.cliente = cliente
 
+        setHasOptionsMenu(true)
 
         return binding.root
     }
@@ -42,7 +41,10 @@ class DetalhesFragment : Fragment() {
         })
 
         binding.recyclerViewDetalhesTelefones.adapter = adapter
-        adapter.submitList(cliente.telefones)
+
+        if (cliente.telefones?.get(0) != ""){
+            adapter.submitList(cliente.telefones)
+        }
 
     }
 
@@ -55,4 +57,10 @@ class DetalhesFragment : Fragment() {
             requestPermissions(requireActivity(),arrayOf(CALL_PHONE), 1);
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
+    }
+
 }

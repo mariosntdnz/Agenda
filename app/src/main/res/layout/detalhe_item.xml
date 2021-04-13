@@ -28,7 +28,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="32dp"
                     android:ems="10"
-                    android:hint="@string/cadastro_option_telefone"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/imageView"
                     app:layout_constraintStart_toStartOf="parent"
