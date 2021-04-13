@@ -27,6 +27,7 @@ class RegisterClientModel(
 
         var erros = ""
 
+        erros += emptyCliente()
         erros += cpfValidation()
         erros += dataCadastroValidation()
         erros += dataNascValidation()
@@ -95,5 +96,15 @@ class RegisterClientModel(
         }
 
         return diffAno
+    }
+
+    fun emptyCliente() : String{
+        if(nome.get() == "" && cpf.get() == "" && dataCadastro.get() == "" &&
+                dataNascimento.get() == "" && dataNascimento.get() == "" && UF == "Selecione"
+                && telefones == arrayListOf("")
+        ){
+            return "Não é possivel criar um contato vazio"
+        }
+        return ""
     }
 }
