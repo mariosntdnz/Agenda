@@ -52,7 +52,7 @@ fun plotDialogCalendar(editText: EditText,status : Boolean){
         val calendario = Calendar.getInstance()
 
         editText.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(editText.context,
+            val datePickerDialog = DatePickerDialog(editText.context,R.style.DialogTheme,
                     { view, year, month, dayOfMonth ->
                         val monthReal = month + 1
                         val dayOfMonthLabel = if (dayOfMonth >= 10) dayOfMonth.toString() else "0$dayOfMonth"
