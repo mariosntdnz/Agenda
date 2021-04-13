@@ -7,149 +7,121 @@
             name="cliente"
             type="com.example.agenda.domain.Cliente"/>
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewDetalhesNome"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="@{cliente.nome}"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewDetalhesCPFLabel"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="CPF : "
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesNome" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDetalhesCPF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:text="@{cliente.cpf}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewDetalhesDataCadastroLabel"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Data Cadastro :"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesCPFLabel" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDetalhesDataNasc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:text="@{cliente.dataNascimento}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewDetalhesDatadeNascimentoLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Data Nascimento :"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesDataCadastroLabel" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDetalhesDataCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:text="@{cliente.dataCadastro}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewDetalhesUF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="UF:"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesDatadeNascimentoLabel" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDetalhesUFvalue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:text="@{cliente.UF}"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewDetalhesTelefoneLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Telefones:"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesUF" />
-
-        <TextView
-            android:id="@+id/textViewDetalhesCPF"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:text="@{cliente.cpf}"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesNome" />
-
-        <TextView
-            android:id="@+id/textViewDetalhesDataNasc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="@{cliente.dataNascimento}"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewDetalhesDatadeNascimentoLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesDataCadastro" />
-
-        <TextView
-            android:id="@+id/textViewDetalhesDataCadastro"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:text="@{cliente.dataCadastro}"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewDetalhesDataCadastroLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesCPF" />
-
-        <TextView
-            android:id="@+id/textViewDetalhesUFvalue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="9dp"
-            android:text="@{cliente.UF}"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewDetalhesUF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDetalhesDataNasc" />
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewDetalhesTelefones"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
             android:scrollbarThumbVertical="@layout/scroll_style"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toTopOf="@+id/textViewDetalhesTelefoneLabel"
             app:spanCount="1"
             tools:listitem="@layout/detalhe_item" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.36" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
