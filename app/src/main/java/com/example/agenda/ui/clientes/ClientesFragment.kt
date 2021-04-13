@@ -3,13 +3,12 @@ package com.example.agenda.ui.clientes
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.agenda.database.repository.ClientesRepository
 import com.example.agenda.databinding.FragmentClientesBinding
-import com.example.agenda.ui.cadastro.CadastroViewModel
-import com.example.agenda.ui.cadastro.CadastroViewModelFactory
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -43,7 +42,10 @@ class ClientesFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ClientesAdapter()
+        val adapter = ClientesAdapter(ClientesAdapter.OnClickListener {
+            viewModel.setContatoClicado(it)
+        })
+
         binding.recyclerViewClientes.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -51,6 +53,14 @@ class ClientesFragment : Fragment(){
                 adapter.submitList(it.sortedBy { it.nome })
             }
         }
+
+        viewModel.contatoClicado.observe(viewLifecycleOwner, {
+            it?.let {
+                this.findNavController().navigate(ClientesFragmentDirections.actionClientesFragmentToDetalhesFragment(it))
+                viewModel.navigationTelaDetalhes()
+
+            }
+        })
 
     }
 

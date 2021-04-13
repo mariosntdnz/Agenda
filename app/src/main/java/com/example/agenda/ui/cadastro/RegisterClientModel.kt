@@ -67,6 +67,7 @@ class RegisterClientModel(
         if (UF == "SP" && cpf.get().isNullOrEmpty()){
             return "Para o estado de SP o preenchimento do CPF é obrigatório\n"
         }
+        if (UF == "Selecione") UF = ""
         return ""
     }
 

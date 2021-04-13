@@ -10,7 +10,7 @@ import com.example.agenda.databinding.ClientesItemBinding
 import com.example.agenda.domain.Cliente
 import kotlinx.android.synthetic.main.clientes_item.view.*
 
-class ClientesAdapter : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(DiffCallback){
+class ClientesAdapter(private val onClickListener: OnClickListener) : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(DiffCallback){
 
     class ClienteViewHolder(binding: ClientesItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -26,7 +26,11 @@ class ClientesAdapter : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(
 
     override fun onBindViewHolder(holder: ClienteViewHolder, position: Int) {
         val cliente = getItem(position)
+
         holder.itemView.textViewNomeCliente.text = cliente.nome
+        holder.itemView.cardView.setOnClickListener {
+            onClickListener.onClick(cliente)
+        }
     }
 
     override fun onCreateViewHolder(
@@ -34,5 +38,9 @@ class ClientesAdapter : ListAdapter<Cliente, ClientesAdapter.ClienteViewHolder>(
         viewType: Int
     ): ClienteViewHolder {
         return ClienteViewHolder(ClientesItemBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    class OnClickListener(val clickListener: (contato:Cliente) -> Unit) {
+        fun onClick(contato: Cliente) = clickListener(contato)
     }
 }

@@ -13,11 +13,26 @@
         <action
             android:id="@+id/action_clientesFragment_to_cadastroFragment"
             app:destination="@id/cadastroFragment" />
+        <action
+            android:id="@+id/action_clientesFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/cadastroFragment"
         android:name="com.example.agenda.ui.cadastro.CadastroFragment"
+        tools:layout="@layout/fragment_cadastro"
         android:label="@string/cadastro_label" />
+
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="com.example.agenda.ui.detalhes.DetalhesFragment"
+        tools:layout="@layout/fragment_detalhes"
+        android:label="@string/contato_label">
+        <argument
+            android:name="contato"
+            app:argType="com.example.agenda.domain.Cliente"
+            />
+    </fragment>
 
 </navigation>
