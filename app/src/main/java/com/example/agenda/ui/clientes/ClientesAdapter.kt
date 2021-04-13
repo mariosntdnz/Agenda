@@ -28,9 +28,10 @@ class ClientesAdapter(private val onClickListener: OnClickListener) : ListAdapte
         val cliente = getItem(position)
 
         holder.itemView.textViewNomeCliente.text = cliente.nome
-        holder.itemView.imageViewClienteLixeira.setOnClickListener {
+        holder.itemView.imageViewClienteLixeiraContent.setOnClickListener {
             onClickListener.deleteIem(cliente)
         }
+
         holder.itemView.cardView.setOnClickListener {
             onClickListener.onClick(cliente)
         }
