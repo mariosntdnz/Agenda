@@ -13,6 +13,8 @@
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="1"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@layout/scroll_style"
             tools:listitem="@layout/clientes_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

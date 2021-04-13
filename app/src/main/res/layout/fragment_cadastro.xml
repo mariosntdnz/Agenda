@@ -104,6 +104,8 @@
             android:layout_marginTop="8dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="1"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@layout/scroll_style"
             tools:listitem="@layout/telefone_item"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toEndOf="parent"
