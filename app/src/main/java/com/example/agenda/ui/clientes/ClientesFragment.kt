@@ -51,6 +51,10 @@ class ClientesFragment : Fragment(){
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.clientes.collect {
+
+                if(it.size > 0) binding.textViewSemConatos.visibility = View.GONE
+                if(it.size == 0) binding.textViewSemConatos.visibility = View.VISIBLE
+
                 adapter.submitList(it.sortedBy { it.nome })
             }
         }
