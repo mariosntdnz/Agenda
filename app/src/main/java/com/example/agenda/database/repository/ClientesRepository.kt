@@ -20,6 +20,10 @@ class ClientesRepository {
         )
     }
 
+    fun deleteCliente(cliente: Cliente){
+        bd.deleteCliente(Parse.parseClienteToEntity(cliente))
+    }
+
     fun getAllClientes() : Flow<List<Cliente>> {
         return bd.getClienteWithTelefone().transform {it ->
             this.emit(

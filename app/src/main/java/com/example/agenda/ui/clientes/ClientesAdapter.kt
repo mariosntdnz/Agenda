@@ -28,6 +28,9 @@ class ClientesAdapter(private val onClickListener: OnClickListener) : ListAdapte
         val cliente = getItem(position)
 
         holder.itemView.textViewNomeCliente.text = cliente.nome
+        holder.itemView.imageViewClienteLixeira.setOnClickListener {
+            onClickListener.deleteIem(cliente)
+        }
         holder.itemView.cardView.setOnClickListener {
             onClickListener.onClick(cliente)
         }
@@ -40,7 +43,8 @@ class ClientesAdapter(private val onClickListener: OnClickListener) : ListAdapte
         return ClienteViewHolder(ClientesItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    class OnClickListener(val clickListener: (contato:Cliente) -> Unit) {
+    class OnClickListener(val clickListener: (contato:Cliente) -> Unit,val delete: (contato:Cliente) -> Unit) {
         fun onClick(contato: Cliente) = clickListener(contato)
+        fun deleteIem(contato: Cliente) = delete(contato)
     }
 }

@@ -42,9 +42,10 @@ class ClientesFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ClientesAdapter(ClientesAdapter.OnClickListener {
-            viewModel.setContatoClicado(it)
-        })
+        val adapter = ClientesAdapter(ClientesAdapter.OnClickListener (
+                {viewModel.setContatoClicado(it) },
+                {viewModel.deleteCliente(it)}
+        ))
 
         binding.recyclerViewClientes.adapter = adapter
 

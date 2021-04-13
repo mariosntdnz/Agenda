@@ -19,6 +19,10 @@ class ClientesViewModel(val repository: ClientesRepository) : ViewModel() {
         clientes = repository.getAllClientes()
     }
 
+    fun deleteCliente(cliente: Cliente){
+        repository.deleteCliente(cliente)
+    }
+
     fun setContatoClicado(contato: Cliente){
         _contatoClicado.value = contato
     }

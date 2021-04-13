@@ -17,7 +17,7 @@ interface ClientesDao {
     fun insertTelefones(generoIDEntity: List<TelefoneEntity?>?)
 
     @Delete
-    fun deleteFilmeFavoritado(cliente: ClienteEntity)
+    fun deleteCliente(cliente: ClienteEntity)
 
     @Transaction
     @Query("SELECT * FROM cliente")

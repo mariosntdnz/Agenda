@@ -27,5 +27,15 @@ class Parse {
                 null
             )
         }
+        fun parseClienteToEntity(cliente: Cliente) = cliente.let {
+            ClienteEntity(
+                    it.id,
+                    it.nome,
+                    it.cpf,
+                    it.dataCadastro,
+                    it.dataNascimento,
+                    it.UF,
+            )
+        }
     }
 }
