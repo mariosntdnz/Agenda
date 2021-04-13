@@ -1,14 +1,18 @@
 package com.example.agenda.ui.clientes
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.agenda.R
 import com.example.agenda.database.repository.ClientesRepository
 import com.example.agenda.databinding.FragmentClientesBinding
+import com.example.agenda.domain.Cliente
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -44,7 +48,7 @@ class ClientesFragment : Fragment(){
 
         val adapter = ClientesAdapter(ClientesAdapter.OnClickListener (
                 {viewModel.setContatoClicado(it) },
-                {viewModel.deleteCliente(it)}
+                {deleteCliente(it)}
         ))
 
         binding.recyclerViewClientes.adapter = adapter
@@ -68,6 +72,22 @@ class ClientesFragment : Fragment(){
         })
 
     }
+
+    fun deleteCliente(cliente : Cliente){
+        AlertDialog.Builder(requireContext()) //set icon
+                .setIcon(R.drawable.ic_error_dialog)
+                .setTitle(getString(R.string.confirmar_excluir_contato,cliente.nome))
+                .setPositiveButton(
+                        R.string.default_positive_button
+                ) { _, _ ->
+                    viewModel.deleteCliente(cliente)
+                }
+                .setNegativeButton(
+                        R.string.default_negative_button
+                ){ _, _-> }
+                .show()
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
