@@ -8,10 +8,7 @@ import kotlinx.coroutines.flow.first
 
 class ClientesViewModel(val repository: ClientesRepository) : ViewModel() {
 
-    //private var _clientes : Flow <List<Cliente>>
     var clientes : Flow<List<Cliente>>
-        //get() = _clientes
-
 
     init {
         clientes = repository.getAllClientes()

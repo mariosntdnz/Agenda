@@ -17,6 +17,7 @@ object Constantes {
         val SIZE_DATA_CADASTRO_DEFAULT = 19
         val SIZE_CPF = 14
         val IDADE_CADASTRO_MG = 18
+        val SIZE_TELEFONE = 13
 
         val SIGLAS_ESTADO = listOf<String>(
             "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS",

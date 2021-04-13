@@ -10,4 +10,13 @@ class CadastroViewModel(val repository: ClientesRepository) : ViewModel() {
     fun insertClienteBD(){
         repository.insertCliente(registerClientModel)
     }
+
+    fun insertTelefone(telefone : String,index : Int){
+        if(index  == registerClientModel.telefones.size){
+            registerClientModel.telefones.add(index,telefone)
+        }
+        else{
+            registerClientModel.telefones[index] = telefone
+        }
+    }
 }

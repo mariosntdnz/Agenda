@@ -8,6 +8,7 @@ import com.example.agenda.utils.Constantes.END_INDEX_MES
 import com.example.agenda.utils.Constantes.IDADE_CADASTRO_MG
 import com.example.agenda.utils.Constantes.SIZE_CPF
 import com.example.agenda.utils.Constantes.SIZE_DATA_CADASTRO_DEFAULT
+import com.example.agenda.utils.Constantes.SIZE_TELEFONE
 import com.example.agenda.utils.Constantes.START_INDEX_ANO
 import com.example.agenda.utils.Constantes.START_INDEX_DIA
 import com.example.agenda.utils.Constantes.START_INDEX_MES
@@ -58,7 +59,8 @@ class RegisterClientModel(
         return ""
     }
     private fun telefonesValidation() : String{
-        return ""
+        return if(telefones.filter { it.length < SIZE_TELEFONE && it.isNotEmpty() }.isNotEmpty()) "Você digitou um número inválido"
+               else   ""
     }
 
     private fun UFValidation() : String {

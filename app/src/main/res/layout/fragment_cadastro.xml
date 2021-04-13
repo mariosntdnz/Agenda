@@ -11,6 +11,7 @@
             type="com.example.agenda.ui.cadastro.RegisterClientModel"/>
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,8 +24,8 @@
             android:ems="10"
             android:hint="@string/cadastro_option_name"
             android:inputType="textPersonName"
-            android:textSize="18sp"
             android:text="@={cliente.nome}"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,8 +38,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="@string/cadastro_option_cpf"
-            android:text="@={cliente.cpf}"
             android:inputType="phone"
+            android:text="@={cliente.cpf}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroNome" />
@@ -53,49 +54,36 @@
             android:ems="10"
             android:focusableInTouchMode="false"
             android:hint="@string/cadastro_option_data_cadastro"
-            android:text="@={cliente.dataCadastro}"
             android:inputType="phone"
+            android:text="@={cliente.dataCadastro}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroCpf" />
 
         <EditText
             android:id="@+id/editTextCadastroDataNascimento"
+            mask="@{constantes.maskData}"
+            plotCalendar="@{true}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            mask="@{constantes.maskData}"
-            plotCalendar="@{true}"
             android:focusableInTouchMode="false"
             android:hint="@string/cadastro_option_data_nasc"
-            android:text="@={cliente.dataNascimento}"
             android:inputType="textPersonName"
+            android:text="@={cliente.dataNascimento}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataDeCadastro" />
 
         <Spinner
             android:id="@+id/spinnerCadastroUf"
+            insertOpcoes="@{constantes.SIGLAS_ESTADO}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            insertOpcoes="@{constantes.SIGLAS_ESTADO}"
             app:layout_constraintBottom_toBottomOf="@+id/editTextCadastroDataNascimento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textViewCadastroLabelUf"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataDeCadastro" />
-
-        <EditText
-            android:id="@+id/editTextCadastroTelefone"
-            mask="@{constantes.maskCel}"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:hint="@string/cadastro_option_telefone"
-            android:inputType="phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataNascimento" />
 
         <TextView
             android:id="@+id/textViewCadastroLabelUf"
@@ -108,6 +96,41 @@
             app:layout_constraintBottom_toBottomOf="@+id/editTextCadastroDataNascimento"
             app:layout_constraintStart_toEndOf="@+id/editTextCadastroDataNascimento"
             app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataDeCadastro" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:listitem="@layout/telefone_item"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCadastroDataNascimento">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/buttonCadastroAddTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/purple_700"
+            android:text="@string/cadastro_button_add_telefone"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

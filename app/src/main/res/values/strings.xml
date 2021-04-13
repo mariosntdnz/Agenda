@@ -10,5 +10,6 @@
     <string name="cadastro_label">Cadastro</string>
     <string name="cadastro_error">Dados não preenchidos corretamente</string>
     <string name="cadastro_dialog_positive_message">Entendi</string>
+    <string name="cadastro_button_add_telefone">Adicionar Telefone</string>
 
 </resources>

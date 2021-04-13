@@ -68,7 +68,7 @@ fun plotDialogCalendar(editText: EditText,status : Boolean){
 
 @BindingAdapter("insertOpcoes")
 fun insertOpcoesSpinner(spinner: Spinner,opcoes : List<String>){
-        val adapter = ArrayAdapter<String>(spinner.context, R.layout.simple_item_spinner, opcoes)
+        val adapter = ArrayAdapter<String>(spinner.context, R.layout.simple_item_spinner, arrayOf("Selecione") + opcoes)
         adapter.setDropDownViewResource(R.layout.simple_item_spinner)
         spinner.adapter = adapter
 }
